@@ -2,3 +2,5 @@ env/
 requirements.txt
 .env
 *.zip
+*3.ipynb
+.cache
