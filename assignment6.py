@@ -228,7 +228,7 @@ if file:
             (
                 {
                     "context": retriever | RunnableLambda(format_docs),
-                    "question": RunnablePassthrough(),
+                    "question": Passthrough(),
                     "history": load_session_state,
                 }
             )
