@@ -1,0 +1,26 @@
+### XZ Backdoor Overview
+
+In February 2024, a significant security vulnerability was discovered in the XZ Utils, specifically within the liblzma library. This backdoor was introduced in versions 5.6.0 and 5.6.1 of the xz utility by an account identified as "Jia Tan". The backdoor allows an attacker with a specific Ed448 private key to execute remote code on affected Linux systems. This vulnerability has been assigned the Common Vulnerabilities and Exposures (CVE) identifier CVE-2024-3094 and has received a Common Vulnerability Scoring System (CVSS) score of 10.0, indicating it is extremely severe.
+
+#### Discovery and Impact
+
+The backdoor was discovered by software developer Andres Freund, who publicly announced the findings on March 29, 2024. At the time of the discovery, the compromised version of xz had not been widely deployed in production environments but was present in development versions of major Linux distributions. The malicious code was found in the upstream tarballs of xz, and it was designed to compromise SSH servers, particularly those using OpenSSH with systemd patches.
+
+The backdoor's presence in the xz utility poses a significant risk, as xz is commonly included in many Linux distributions. If exploited, it could allow unauthorized remote access to systems, enabling attackers to execute arbitrary commands as the user running the SSH service.
+
+#### Technical Details
+
+The backdoor was implemented through a series of complex obfuscations in the liblzma build process. This method of embedding malicious code highlights the vulnerabilities present in software supply chains, particularly in open-source projects where code is often shared and reused.
+
+#### Related Concepts
+
+A backdoor, in computing, refers to a covert method of bypassing normal authentication or encryption in a computer system. Backdoors can be used for various purposes, including securing remote access or obtaining access to sensitive information. They can be hidden within legitimate software or introduced through malicious means, as seen in the case of the XZ backdoor.
+
+### Conclusion
+
+The XZ backdoor incident underscores the importance of vigilance in software development and distribution, particularly in open-source environments. It serves as a reminder of the potential risks associated with supply chain vulnerabilities and the need for robust security measures to protect against such threats.
+
+### References
+1. [Wikipedia - XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
+2. [Wikipedia - Backdoor (computing)](https://en.wikipedia.org/wiki/Backdoor_(computing))
+3. [Phoronix - CVE-2024-3094 XZ Backdoor](https://www.phoronix.com/news/XZ-CVE-2024-3094)
